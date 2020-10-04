@@ -25,4 +25,4 @@ jobs:
       - name: Run PHPUnit
         env:
           EXT_IP_KEY: ${{ secrets.EXT_IP_KEY }}
-        run: php7.3 vendor/bin/phpunit ./tests --coverage-text
+        run: php vendor/bin/phpunit ./tests --coverage-text
