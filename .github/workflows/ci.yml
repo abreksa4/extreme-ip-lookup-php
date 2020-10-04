@@ -20,9 +20,9 @@ jobs:
           ini-values: post_max_size=256M, log_errors=1
           coverage: pcov
           tools: pecl
-        - name: Install composer dependencies
-          run: composer install --prefer-dist
-        - name: Run PHPUnit
-          env:
-            EXT_IP_KEY: ${{ secrets.EXT_IP_KEY }}
-          run: php7.3 vendor/bin/phpunit ./tests --coverage-text
+      - name: Install composer dependencies
+        run: composer install --prefer-dist
+      - name: Run PHPUnit
+        env:
+          EXT_IP_KEY: ${{ secrets.EXT_IP_KEY }}
+        run: php7.3 vendor/bin/phpunit ./tests --coverage-text
