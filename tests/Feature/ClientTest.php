@@ -7,12 +7,10 @@ namespace Test\Feature;
 use AndrewBreksa\ExtremeIPLookup\Client;
 use AndrewBreksa\ExtremeIPLookup\ExtremeIPLookupException;
 use AndrewBreksa\ExtremeIPLookup\IPResult;
-use Http\Discovery\MessageFactoryDiscovery;
-use Http\Discovery\StreamFactoryDiscovery;
-use Http\Message\MessageFactory\GuzzleMessageFactory;
-use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client as GuzzleClient;
 use Http\Adapter\Guzzle7\Client as GuzzleAdapter;
+use Http\Message\MessageFactory\GuzzleMessageFactory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ClientTest
