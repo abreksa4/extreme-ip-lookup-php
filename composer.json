@@ -18,7 +18,8 @@
     "phpunit/phpunit": "^9.4",
     "php-http/client-implementation": "1.0",
     "mockery/mockery": "^1.4",
-    "php-http/guzzle7-adapter": "^0.1.0"
+    "php-http/guzzle7-adapter": "^0.1.0",
+    "roave/security-advisories": "dev-latest"
   },
   "require": {
     "psr/http-message": "^1.0",
@@ -27,7 +28,7 @@
     "php-http/discovery": "^1.12",
     "ext-json": "*",
     "suin/json": "^1.2",
-    "php": "^7.4"
+    "php": "^7.4|^8.0"
   },
   "autoload": {
     "psr-4": {
