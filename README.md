@@ -5,7 +5,7 @@ _A simple wrapper for eXTReMe-IP-LOOKUP.com_
 
 # Installation
 - Add `https://github.com/abreksa4/extreme-ip-lookup-php.git` to your [composer repositories](https://getcomposer.org/doc/05-repositories.md)
-- Run `composer require andrewbreksa/exteme-ip-lookup`
+- Run `composer require andrewbreksa/extreme-ip-lookup`
 
 # Usage
 ```php
