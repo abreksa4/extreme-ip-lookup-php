@@ -2,6 +2,7 @@ eXTReMe IP LOOKUP Client
 ------------------------
 [![codecov](https://codecov.io/gh/abreksa4/extreme-ip-lookup-php/branch/master/graph/badge.svg?token=3G90R1YOH3)](https://codecov.io/gh/abreksa4/extreme-ip-lookup-php)
 [![workflow](https://github.com/abreksa4/extreme-ip-lookup-php/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/abreksa4/extreme-ip-lookup-php)
+
 _A simple wrapper for eXTReMe-IP-LOOKUP.com_
 
 # Installation
