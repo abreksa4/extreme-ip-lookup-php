@@ -25,4 +25,8 @@ jobs:
       - name: Run PHPUnit
         env:
           EXT_IP_KEY: ${{ secrets.EXT_IP_KEY }}
-        run: php vendor/bin/phpunit ./tests --coverage-text --whitelist ./src
+        run: php vendor/bin/phpunit ./tests --coverage-text --whitelist ./src --coverage-clover coverage.xml
+      - name: Upload CodeCov report
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: bash <(curl -s https://codecov.io/bash)
