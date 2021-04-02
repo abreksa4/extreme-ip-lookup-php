@@ -1,16 +1,18 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace AndrewBreksa\ExtremeIPLookup;
-
 
 use ArrayAccess;
 use JsonSerializable;
 
 /**
  * Class IPResult
- * @package AndrewBreksa\ExtremeIPLookup
- * @author  Andrew Breksa <andrew@andrewbreksa.com>
+ * @package    AndrewBreksa\ExtremeIPLookup
+ * @author     Andrew Breksa <andrew@andrewbreksa.com>
+ * @implements ArrayAccess<string, string>
+ *
  * @property string $businessName
  * @property string $businessWebsite
  * @property string $city
@@ -29,15 +31,14 @@ use JsonSerializable;
  */
 class IPResult implements JsonSerializable, ArrayAccess
 {
-
     /**
-     * @var array
+     * @var array<string, string>
      */
     protected $data = [];
 
     /**
      * IPResult constructor.
-     * @param array $data
+     * @param array<string, string> $data
      */
     public function __construct(array $data)
     {
@@ -47,7 +48,7 @@ class IPResult implements JsonSerializable, ArrayAccess
     /**
      * @param string $key
      * @param null   $default
-     * @return mixed|null
+     * @return string|null
      */
     public function get(string $key, $default = null)
     {
@@ -68,7 +69,7 @@ class IPResult implements JsonSerializable, ArrayAccess
     }
 
     /**
-     * @param mixed $offset
+     * @param string $offset
      * @return bool
      */
     public function offsetExists($offset)
@@ -77,7 +78,7 @@ class IPResult implements JsonSerializable, ArrayAccess
     }
 
     /**
-     * @param mixed $offset
+     * @param string $offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -86,7 +87,7 @@ class IPResult implements JsonSerializable, ArrayAccess
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function jsonSerialize()
     {
@@ -94,7 +95,7 @@ class IPResult implements JsonSerializable, ArrayAccess
     }
 
     /**
-     * @param mixed $offset
+     * @param string $offset
      */
     public function offsetUnset($offset)
     {
@@ -103,7 +104,7 @@ class IPResult implements JsonSerializable, ArrayAccess
 
     /**
      * @param string $key
-     * @return mixed
+     * @return string
      */
     public function __get(string $key)
     {
@@ -112,16 +113,16 @@ class IPResult implements JsonSerializable, ArrayAccess
 
     /**
      * @param string $key
-     * @param        $value
+     * @param string $value
      */
-    public function __set(string $key, $value)
+    public function __set(string $key, string $value): void
     {
         $this->offsetSet($key, $value);
     }
 
     /**
-     * @param mixed $offset
-     * @param mixed $value
+     * @param string $offset
+     * @param string $value
      */
     public function offsetSet($offset, $value)
     {

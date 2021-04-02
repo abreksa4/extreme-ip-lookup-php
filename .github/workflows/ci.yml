@@ -26,6 +26,8 @@ jobs:
         env:
           EXT_IP_KEY: ${{ secrets.EXT_IP_KEY }}
         run: php vendor/bin/phpunit ./tests --coverage-text --whitelist ./src --coverage-clover coverage.xml
+      - name: Run PHPStan
+        run: php vendor/bin/phpstan analyse -c phpstan.neon
       - name: Upload CodeCov report
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

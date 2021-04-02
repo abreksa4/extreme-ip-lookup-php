@@ -1,8 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace Test\Unit;
-
 
 use AndrewBreksa\ExtremeIPLookup\ExtremeIPLookupException;
 use AndrewBreksa\ExtremeIPLookup\IPResult;
@@ -21,17 +21,16 @@ use Psr\Http\Message\StreamInterface;
  */
 class ClientTest extends TestCase
 {
+    public const SUCCESS_RESPONSE = '{"businessName":"Sandhills Publishing Company","businessWebsite":"www.sandhills.com","city":"Lincoln","continent":"North America","country":"United States","countryCode":"US","ipName":"proxy.sandhills.com","ipType":"Business","isp":"Sandhills Publishing","lat":"40.8","lon":"-96.66696","org":"Sandhills Publishing Company","query":"63.70.164.200","region":"Nebraska","status":"success","timezone":"America/Chicago","utcOffset":"-05:00"}';
 
-    const SUCCESS_RESPONSE = '{"businessName":"Sandhills Publishing Company","businessWebsite":"www.sandhills.com","city":"Lincoln","continent":"North America","country":"United States","countryCode":"US","ipName":"proxy.sandhills.com","ipType":"Business","isp":"Sandhills Publishing","lat":"40.8","lon":"-96.66696","org":"Sandhills Publishing Company","query":"63.70.164.200","region":"Nebraska","status":"success","timezone":"America/Chicago","utcOffset":"-05:00"}';
-
-    const FAIL_RESPONSE = '{"status":"fail","message":"this is a test problem"}';
+    public const FAIL_RESPONSE = '{"status":"fail","message":"this is a test problem"}';
 
     public function testSuccess()
     {
-        $mock = Mockery::mock(HttpClient::class);
+        $mock    = Mockery::mock(HttpClient::class);
         $factory = Mockery::mock(MessageFactory::class);
-        $apiKey = 'test-api-key';
-        $ip = '63.70.164.200';
+        $apiKey  = 'test-api-key';
+        $ip      = '63.70.164.200';
 
         $client = new \AndrewBreksa\ExtremeIPLookup\Client(
             $mock,
@@ -74,10 +73,10 @@ class ClientTest extends TestCase
 
     public function testNon200ResponseCode()
     {
-        $mock = Mockery::mock(HttpClient::class);
+        $mock    = Mockery::mock(HttpClient::class);
         $factory = Mockery::mock(MessageFactory::class);
-        $apiKey = 'test-api-key';
-        $ip = '63.70.164.200';
+        $apiKey  = 'test-api-key';
+        $ip      = '63.70.164.200';
 
         $client = new \AndrewBreksa\ExtremeIPLookup\Client(
             $mock,
@@ -108,15 +107,14 @@ class ClientTest extends TestCase
         $this->expectException(ExtremeIPLookupException::class);
 
         $client->lookup($ip);
-
     }
 
     public function testFail()
     {
-        $mock = Mockery::mock(HttpClient::class);
+        $mock    = Mockery::mock(HttpClient::class);
         $factory = Mockery::mock(MessageFactory::class);
-        $apiKey = 'test-api-key';
-        $ip = '63.70.164.200';
+        $apiKey  = 'test-api-key';
+        $ip      = '63.70.164.200';
 
         $client = new \AndrewBreksa\ExtremeIPLookup\Client(
             $mock,
@@ -154,7 +152,6 @@ class ClientTest extends TestCase
         $this->expectException(ExtremeIPLookupException::class);
 
         $client->lookup($ip);
-
     }
 
     public function tearDown(): void
@@ -162,5 +159,4 @@ class ClientTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
-
 }

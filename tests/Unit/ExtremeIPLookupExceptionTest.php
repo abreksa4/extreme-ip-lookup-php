@@ -1,8 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace Test\Unit;
-
 
 use AndrewBreksa\ExtremeIPLookup\ExtremeIPLookupException;
 use PHPUnit\Framework\TestCase;
@@ -16,10 +16,10 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ExtremeIPLookupExceptionTest extends TestCase
 {
-
-    public function testGetterSetter(){
-        $request = \Mockery::mock(RequestInterface::class);
-        $response = \Mockery::mock(ResponseInterface::class);
+    public function testGetterSetter()
+    {
+        $request   = \Mockery::mock(RequestInterface::class);
+        $response  = \Mockery::mock(ResponseInterface::class);
         $exception = new ExtremeIPLookupException(
             'Test Message',
             $request,
@@ -35,5 +35,4 @@ class ExtremeIPLookupExceptionTest extends TestCase
         \Mockery::close();
         parent::tearDown();
     }
-
 }

@@ -1,8 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace AndrewBreksa\ExtremeIPLookup;
-
 
 use Exception;
 use Psr\Http\Message\RequestInterface;
@@ -27,14 +27,14 @@ class ExtremeIPLookupException extends Exception
 
     /**
      * ExtremeIPLookupException constructor.
-     * @param                        $message
-     * @param RequestInterface       $request
-     * @param ResponseInterface      $response
+     * @param string            $message
+     * @param RequestInterface  $request
+     * @param ResponseInterface $response
      */
     public function __construct(string $message, RequestInterface $request, ResponseInterface $response)
     {
         parent::__construct($message);
-        $this->request = $request;
+        $this->request  = $request;
         $this->response = $response;
     }
 

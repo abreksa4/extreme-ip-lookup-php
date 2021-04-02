@@ -1,7 +1,7 @@
 {
   "name": "andrewbreksa/extreme-ip-lookup",
   "type": "library",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "description": "A simple HTTP wrapper for eXTReMe-IP-LOOKUP.com",
   "authors": [
@@ -19,7 +19,9 @@
     "php-http/client-implementation": "1.0",
     "mockery/mockery": "^1.4",
     "php-http/guzzle7-adapter": "^0.1.0 || ^1.0.0",
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "friendsofphp/php-cs-fixer": "^2.18",
+    "phpstan/phpstan": "^0.12.82"
   },
   "require": {
     "psr/http-message": "^1.0",
@@ -39,5 +41,10 @@
     "psr-4": {
       "Test\\": "tests"
     }
+  },
+  "scripts": {
+    "cs-fixer": "./vendor/bin/php-cs-fixer fix --ansi --config=.php_cs ./src ./tests",
+    "phpunit": "XDEBUG_MODE=coverage php vendor/bin/phpunit --coverage-text",
+    "phpstan": "php vendor/bin/phpstan analyse -c phpstan.neon"
   }
 }

@@ -1,8 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace Test\Feature;
-
 
 use AndrewBreksa\ExtremeIPLookup\Client;
 use AndrewBreksa\ExtremeIPLookup\ExtremeIPLookupException;
@@ -19,10 +19,8 @@ use PHPUnit\Framework\TestCase;
  */
 class ClientTest extends TestCase
 {
-
     public function testSuccess()
     {
-
         $client = new Client(
             new GuzzleAdapter(new GuzzleClient()),
             new GuzzleMessageFactory(),
@@ -38,7 +36,6 @@ class ClientTest extends TestCase
 
     public function testInvalidIP()
     {
-
         $client = new Client(
             new GuzzleAdapter(new GuzzleClient()),
             new GuzzleMessageFactory(),
@@ -51,5 +48,4 @@ class ClientTest extends TestCase
 
         $client->lookup($ip);
     }
-
 }

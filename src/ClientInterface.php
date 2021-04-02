@@ -1,5 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace AndrewBreksa\ExtremeIPLookup;
 
@@ -12,7 +13,6 @@ use Suin\Json\DecodingException;
  */
 interface ClientInterface
 {
-
     /**
      * @param string $ipAddress
      * @return IPResult
@@ -20,5 +20,4 @@ interface ClientInterface
      * @throws DecodingException
      */
     public function lookup(string $ipAddress): IPResult;
-
 }

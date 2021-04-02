@@ -1,8 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace AndrewBreksa\ExtremeIPLookup;
-
 
 use Http\Client\HttpClient;
 use Http\Message\MessageFactory;
@@ -16,7 +16,6 @@ use function Suin\Json\json_decode;
  */
 class Client implements ClientInterface
 {
-
     /**
      * @var HttpClient
      */
@@ -40,9 +39,9 @@ class Client implements ClientInterface
      */
     public function __construct(HttpClient $httpClient, MessageFactory $httpMessageFactory, string $apiKey)
     {
-        $this->httpClient = $httpClient;
+        $this->httpClient         = $httpClient;
         $this->httpMessageFactory = $httpMessageFactory;
-        $this->apiKey = $apiKey;
+        $this->apiKey             = $apiKey;
     }
 
     /**
