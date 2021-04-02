@@ -18,7 +18,7 @@
     "phpunit/phpunit": "^9.4",
     "php-http/client-implementation": "1.0",
     "mockery/mockery": "^1.4",
-    "php-http/guzzle7-adapter": "^0.1.0",
+    "php-http/guzzle7-adapter": "^0.1.0 || ^1.0.0",
     "roave/security-advisories": "dev-latest"
   },
   "require": {
