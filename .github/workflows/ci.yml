@@ -1,13 +1,13 @@
 name: CI
 
-on: [push]
+on: [ push ]
 
 jobs:
   test:
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
-        php-versions: ['7.4', '8.0']
+        operating-system: [ ubuntu-latest ]
+        php-versions: [ '7.4', '8.0' ]
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
