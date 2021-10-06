@@ -20,7 +20,7 @@
     "mockery/mockery": "^1.4",
     "php-http/guzzle7-adapter": "^0.1.0 || ^1.0.0",
     "roave/security-advisories": "dev-latest",
-    "friendsofphp/php-cs-fixer": "^2.18",
+    "friendsofphp/php-cs-fixer": "^2.18 || ^3.0",
     "phpstan/phpstan": "^0.12.82"
   },
   "require": {
