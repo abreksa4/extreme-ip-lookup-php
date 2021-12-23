@@ -1,7 +1,7 @@
 {
   "name": "andrewbreksa/extreme-ip-lookup",
   "type": "library",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "license": "MIT",
   "description": "A simple HTTP wrapper for eXTReMe-IP-LOOKUP.com",
   "authors": [
@@ -43,7 +43,7 @@
     }
   },
   "scripts": {
-    "cs-fixer": "./vendor/bin/php-cs-fixer fix --ansi --config=.php_cs ./src ./tests",
+    "cs-fixer": "./vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php ./src ./tests .php-cs-fixer.php",
     "phpunit": "XDEBUG_MODE=coverage php vendor/bin/phpunit --coverage-text",
     "phpstan": "php vendor/bin/phpstan analyse -c phpstan.neon"
   }

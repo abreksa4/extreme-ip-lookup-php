@@ -72,6 +72,7 @@ class IPResult implements JsonSerializable, ArrayAccess
      * @param string $offset
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return array_key_exists($offset, $this->data);
@@ -81,6 +82,7 @@ class IPResult implements JsonSerializable, ArrayAccess
      * @param string $offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->data[$offset];
@@ -89,6 +91,7 @@ class IPResult implements JsonSerializable, ArrayAccess
     /**
      * @return array<string, string>
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->data;
@@ -97,6 +100,7 @@ class IPResult implements JsonSerializable, ArrayAccess
     /**
      * @param string $offset
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->data[$offset]);
@@ -124,6 +128,7 @@ class IPResult implements JsonSerializable, ArrayAccess
      * @param string $offset
      * @param string $value
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         $this->data[$offset] = $value;

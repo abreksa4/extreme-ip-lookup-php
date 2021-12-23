@@ -39,31 +39,26 @@ class ClientTest extends TestCase
         );
 
         $response = Mockery::mock(ResponseInterface::class);
-        $response->shouldReceive('getStatusCode')
-            ->andReturn(200)
-            ->once();
+        $response->expects('getStatusCode')
+                 ->andReturns(200);
         $stream = Mockery::mock(StreamInterface::class);
-        $stream->shouldReceive('getContents')
-            ->andReturn(self::SUCCESS_RESPONSE)
-            ->once();
-        $response->shouldReceive('getBody')
-            ->andReturn($stream)
-            ->once();
+        $stream->expects('getContents')
+               ->andReturns(self::SUCCESS_RESPONSE);
+        $response->expects('getBody')
+                 ->andReturns($stream);
 
         $request = Mockery::mock(RequestInterface::class);
 
-        $factory->shouldReceive('createRequest')
-            ->with(
-                'GET',
-                'https://extreme-ip-lookup.com/json/' . $ip . '?key=' . $apiKey
-            )
-            ->andReturn($request)
-            ->once();
+        $factory->expects('createRequest')
+                ->with(
+                    'GET',
+                    'https://extreme-ip-lookup.com/json/' . $ip . '?key=' . $apiKey
+                )
+                ->andReturns($request);
 
-        $mock->shouldReceive('sendRequest')
-            ->with($request)
-            ->andReturn($response)
-            ->once();
+        $mock->expects('sendRequest')
+             ->with($request)
+             ->andReturns($response);
 
         $ipResult = $client->lookup($ip);
 
@@ -85,24 +80,21 @@ class ClientTest extends TestCase
         );
 
         $response = Mockery::mock(ResponseInterface::class);
-        $response->shouldReceive('getStatusCode')
-            ->andReturn(400)
-            ->once();
+        $response->expects('getStatusCode')
+                 ->andReturns(400);
 
         $request = Mockery::mock(RequestInterface::class);
 
-        $factory->shouldReceive('createRequest')
-            ->with(
-                'GET',
-                'https://extreme-ip-lookup.com/json/' . $ip . '?key=' . $apiKey
-            )
-            ->andReturn($request)
-            ->once();
+        $factory->expects('createRequest')
+                ->with(
+                    'GET',
+                    'https://extreme-ip-lookup.com/json/' . $ip . '?key=' . $apiKey
+                )
+                ->andReturns($request);
 
-        $mock->shouldReceive('sendRequest')
-            ->with($request)
-            ->andReturn($response)
-            ->once();
+        $mock->expects('sendRequest')
+             ->with($request)
+             ->andReturns($response);
 
         $this->expectException(ExtremeIPLookupException::class);
 
@@ -123,31 +115,26 @@ class ClientTest extends TestCase
         );
 
         $response = Mockery::mock(ResponseInterface::class);
-        $response->shouldReceive('getStatusCode')
-            ->andReturn(200)
-            ->once();
+        $response->expects('getStatusCode')
+                 ->andReturns(200);
         $stream = Mockery::mock(StreamInterface::class);
-        $stream->shouldReceive('getContents')
-            ->andReturn(self::FAIL_RESPONSE)
-            ->once();
-        $response->shouldReceive('getBody')
-            ->andReturn($stream)
-            ->once();
+        $stream->expects('getContents')
+               ->andReturns(self::FAIL_RESPONSE);
+        $response->expects('getBody')
+                 ->andReturns($stream);
 
         $request = Mockery::mock(RequestInterface::class);
 
-        $factory->shouldReceive('createRequest')
-            ->with(
-                'GET',
-                'https://extreme-ip-lookup.com/json/' . $ip . '?key=' . $apiKey
-            )
-            ->andReturn($request)
-            ->once();
+        $factory->expects('createRequest')
+                ->with(
+                    'GET',
+                    'https://extreme-ip-lookup.com/json/' . $ip . '?key=' . $apiKey
+                )
+                ->andReturns($request);
 
-        $mock->shouldReceive('sendRequest')
-            ->with($request)
-            ->andReturn($response)
-            ->once();
+        $mock->expects('sendRequest')
+             ->with($request)
+             ->andReturns($response);
 
         $this->expectException(ExtremeIPLookupException::class);
 
